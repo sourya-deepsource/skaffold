@@ -176,8 +176,6 @@ func generateEnvFromImage(imageStr string) ([]v1.EnvVar, error) {
 		imgRef.Tag = "latest"
 	}
 	var generatedEnvs []v1.EnvVar
-	generatedEnvs = append(generatedEnvs, v1.EnvVar{Name: "IMAGE_REPO", Value: imgRef.Repo})
-	generatedEnvs = append(generatedEnvs, v1.EnvVar{Name: "IMAGE_NAME", Value: imgRef.Name})
-	generatedEnvs = append(generatedEnvs, v1.EnvVar{Name: "IMAGE_TAG", Value: imgRef.Tag})
+	generatedEnvs = append(generatedEnvs, v1.EnvVar{Name: "IMAGE_REPO", Value: imgRef.Repo}, v1.EnvVar{Name: "IMAGE_NAME", Value: imgRef.Name}, v1.EnvVar{Name: "IMAGE_TAG", Value: imgRef.Tag})
 	return generatedEnvs, nil
 }

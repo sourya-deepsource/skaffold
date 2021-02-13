@@ -106,8 +106,7 @@ func (b *Builder) retrieveEnv(a *latest.Artifact, tag string) ([]string, error) 
 	}
 
 	// Standardize access to Image reference fields in templates
-	envs = append(envs, fmt.Sprintf("%s=%s", constants.ImageRef.Repo, ref.BaseName))
-	envs = append(envs, fmt.Sprintf("%s=%s", constants.ImageRef.Tag, ref.Tag))
+	envs = append(envs, fmt.Sprintf("%s=%s", constants.ImageRef.Repo, ref.BaseName), fmt.Sprintf("%s=%s", constants.ImageRef.Tag, ref.Tag))
 
 	envs = append(envs, b.additionalEnv...)
 	envs = append(envs, util.OSEnviron()...)
