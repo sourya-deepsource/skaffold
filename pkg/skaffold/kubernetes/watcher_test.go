@@ -118,9 +118,7 @@ func TestPodWatcher(t *testing.T) {
 
 		// Retrieve three events
 		var podEvents []PodEvent
-		podEvents = append(podEvents, <-events)
-		podEvents = append(podEvents, <-events)
-		podEvents = append(podEvents, <-events)
+		podEvents = append(podEvents, <-events, <-events, <-events)
 		close(events)
 
 		// Order is not guaranteed since we watch multiple names concurrently.

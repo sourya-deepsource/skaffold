@@ -125,14 +125,12 @@ func (h *Deployer) installArgs(r latest.HelmRelease, builds []build.Artifact, va
 			args = append(args, "--recreate-pods")
 		}
 	} else {
-		args = append(args, "install")
-		args = append(args, o.releaseName)
+		args = append(args, "install", o.releaseName)
 		args = append(args, o.flags...)
 	}
 
 	if o.postRenderer != "" {
-		args = append(args, "--post-renderer")
-		args = append(args, o.postRenderer)
+		args = append(args, "--post-renderer", o.postRenderer)
 	}
 
 	// There are 2 strategies:
