@@ -10,3 +10,7 @@ enabled = true
 
   [analyzers.meta]
   import_paths = ["github.com/GoogleContainerTools/skaffold"]
+
+[[transformers]]
+name = "gofmt"
+enabled = true
